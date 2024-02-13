@@ -36,9 +36,5 @@ yarn-error.*
 # typescript
 *.tsbuildinfo
 
-# patches
-*.patch
-patches/
-
 # android
 android/
