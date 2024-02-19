@@ -10,6 +10,7 @@ export const layouts = StyleSheet.create({
     justifyContent: "center",
     gap: 10,
     minHeight: "100%",
+    minWidth: "100%",
     backgroundColor: colors.background.main,
   },
 });

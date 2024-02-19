@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 import { useState } from "react";
 import { EyeIcon, EyeOffIcon } from "lucide-react-native";
+import { useNavigation } from "@react-navigation/native";
 import {
   Button,
   ButtonSpinner,
@@ -25,6 +26,8 @@ export default function LoginScreen() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
+  const navigation = useNavigation();
+
   const handleLogin = async () => {
     setLoading(true);
     setError(null);
@@ -43,6 +46,11 @@ export default function LoginScreen() {
 
       storeInCache(CACHE_KEYS.USER_DATA, JSON.stringify(res.data));
       storeInCache(CACHE_KEYS.TOKEN, res.data.token);
+
+      navigation.reset({
+        index: 0,
+        routes: [{ name: "Main" }],
+      });
     });
 
     setLoading(false);
